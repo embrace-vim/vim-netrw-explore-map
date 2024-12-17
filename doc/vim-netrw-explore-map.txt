@@ -1,0 +1,122 @@
+*vim-async-map.txt*	Distraction-free insert maps.	2024 Dec 09
+
+VIM NETRW EXPLORE MAP 🐾 Convenient Netrw ``:Explore`` Map Commands~
+
+VIM NETRW EXPLORE MAP				*vim-netrw-explore-map*
+
+1. About This Plugin				|vim-netrw-explore-map-about|
+2. Initialization				|vim-netrw-explore-map-init|
+3. Dependencies					|vim-netrw-explore-map-dependencies|
+4. Hints					|vim-netrw-explore-map-hints|
+
+==============================================================================
+1. About This Plugin				*vim-netrw-explore-map-about*
+
+Wire convenient `:Explore [dir]` command maps.
+
+Project page: https://github.com/embrace-vim/vim-netrw-map 🐾
+
+==============================================================================
+2. Initialization				*vim-netrw-explore-map-init*
+
+Your Vim config must initialize the plugin, otherwise it won't do anything.
+
+Call something like this from your Vim config: >
+
+  let notable_notes_mappings = [
+    \   ["<Leader>p", "~/path/to/dir1"],
+    \   ["<Leader>P", "~/path/to/dir2"],
+    \   ["<Leader><M-p>", "~/path/to/dir3"],
+    \   ["<Leader><M-P>", "~/path/to/dir4"],
+    \ ]
+
+  call g:embrace#explore#CreateMapsAndSetupNetrw(notable_notes_mappings)
+<
+This will create 4 maps:
+
+- `\p` will explore `~/path/to/dir1`.
+
+- `\P` will explore `~/path/to/dir2`.
+
+- `\<Alt-p>` will explore `~/path/to/dir3`.
+
+- `\<Alt-P>` will explore `~/path/to/dir4`.
+
+==============================================================================
+3. Dependencies					*vim-netrw-explore-map-dependencies*
+
+This plugin uses a command from `embrace-vim/vim-buffer-delights`
+to avoid opening files in a special buffer:
+
+https://github.com/embrace-vim/vim-buffer-delights 🍧
+
+This plugin will issue a single warning if the `vim-buffer-delights`
+plugin is not installed, but it will otherwise work.
+
+- You can disable the warning with a global variable: >
+
+  let g:vim_buffer_delights_alerts_disable = 1
+<
+The `vim-buffer-delights` plugin will wire a number of window and
+buffer command maps, which you can disable with a global variable: >
+
+  let g:vim_buffer_delights_disable = 1
+<
+==============================================================================
+4. Hints					*vim-netrw-explore-map-hints*
+
+The author uses maps like these to explore a directory of symlinks,
+where each symlink is prefixed "00", "01", etc., and each symlink
+points to a text file that I often edit.
+
+Then, when you run the map command (e.g., `\p` from the example above),
+you can:
+
+- Look at file you want to open.
+
+- Type the number indicated.
+
+- Hit the down arrow.
+
+- Press <Enter> to open the file.
+
+E.g., `\p4↓<CR>` takes 5 keystrokes to open a specific file.
+
+This plugin is just one example of many options for opening commonly
+edited files:
+
+- You could wire a Vim |map| to the specific file.
+
+  - E.g., you could wire <Alt-p>: >
+
+      nnoremap <M-p> :e ~/path/to/dir1/file<CR>
+<
+- You could instead use an OS accelerator mapping.
+
+  - E.g., using Hammerspoon and `gvim-open-kindness` 🐬:
+      
+      https://www.hammerspoon.org/
+
+      https://github.com/DepoXy/gvim-open-kindness
+
+    You could wire `<Alt-p>` to an OS-wide keybinding: >
+
+      local alt_p = hs.hotkey.bind({"alt"}, "P", function()
+        gvim_open_kindness("~/path/to/dir1/file")
+      end)
+<
+- You could use a fuzzy-finder, such as `junegunn/fzf.vim`:
+
+  https://github.com/junegunn/fzf
+
+  https://github.com/junegunn/fzf.vim
+    
+In the first two examples above, it takes just one keystroke to open
+the file, but if you have lots of files you'd like easy access to,
+you might quickly run out of convenient bindings. Or you might not
+remember them all!
+
+By using `vim-netrw-explore-map`, we hope it makes it easier to
+quickly find and open your favorite text files.
+
+ vim:tw=78:ts=8:ft=help:norl:
