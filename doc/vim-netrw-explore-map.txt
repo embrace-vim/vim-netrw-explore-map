@@ -1,6 +1,6 @@
 *vim-async-map.txt*	Distraction-free insert maps.	2024 Dec 09
 
-VIM NETRW EXPLORE MAP 🐾 Convenient Netrw ``:Explore`` Map Commands~
+VIM NETRW EXPLORE MAP 🥾 Convenient Netrw ``:Explore`` Map Commands~
 
 VIM NETRW EXPLORE MAP				*vim-netrw-explore-map*
 
@@ -14,7 +14,7 @@ VIM NETRW EXPLORE MAP				*vim-netrw-explore-map*
 
 Wire convenient `:Explore [dir]` command maps.
 
-Project page: https://github.com/embrace-vim/vim-netrw-map 🐾
+Project page: https://github.com/embrace-vim/vim-netrw-explore-map 🥾
 
 ==============================================================================
 2. Initialization				*vim-netrw-explore-map-init*
