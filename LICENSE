@@ -1,13 +1,13 @@
-                   To the extent possible under law,
-                 Landon Bouma has waived all copyright
-                 and related or  neighboring rights to
-                             vim-depoxy
-              This work is published from: United States.
+             To the extent possible under law,
+           Landon Bouma has waived all copyright
+            and related or neighboring rights to
+                    vim-netrw-explore-map 🥾
+          This work is published from: United States.
 
-          https://creativecommons.org/publicdomain/zero/1.0/
+     https://creativecommons.org/publicdomain/zero/1.0/
 
-                    CC0 1.0 Universal  (CC0 1.0)
-                      Public Domain Dedication
+               CC0 1.0 Universal (CC0 1.0)
+                Public Domain Dedication
 
 Statement of Purpose
 
@@ -144,3 +144,4 @@ effect of CC0 on those rights.
       is not a party to this document and has no duty or obligation
       with respect to this CC0 or use of the Work.
 
+ vim:tw=0:ts=3:sw=3:et:norl:ft=text:nospell
