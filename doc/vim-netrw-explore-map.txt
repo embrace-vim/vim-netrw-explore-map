@@ -89,7 +89,11 @@ edited files:
 
   - E.g., you could wire <Alt-p>: >
 
-      nnoremap <M-p> :e ~/path/to/dir1/file<CR>
+      if has('macunix')
+        nnoremap π :e ~/path/to/dir1/file<CR>
+      else
+        nnoremap <M-p> :e ~/path/to/dir1/file<CR>
+      endif
 <
 - You could instead use an OS accelerator mapping.
 
