@@ -227,7 +227,7 @@ let s:has_alerted_vim_buffer_delights = 0
 
 function! s:MoveCursorToFirstNormalWindow() abort
   " CXREF:
-  " ~/.vim/pack/embrace-vim/start/vim-buffer-delights/autoload/embrace/windows.vim
+  " ~/.kit/nvim/embrace-vim/start/vim-buffer-delights/autoload/embrace/windows.vim
   try
     let l:found_winnr = g:embrace#windows#FindNextWindowWithNormalBuffer()
   catch /^Vim\%((\a\+)\)\=:E117:/
