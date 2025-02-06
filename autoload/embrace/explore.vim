@@ -309,7 +309,10 @@ function! s:EscapeFromNetrwBuffer()
   " but if you've opened :netrw from :netrw,
   " then that switches between the 2 :netrw
   " windows.
-  exec "normal " . s:notable_notes_mru_bufnr . "\<C-^>"
+
+  if exists('s:notable_notes_mru_bufnr')
+    exec "normal " . s:notable_notes_mru_bufnr . "\<C-^>"
+  endif
 endfunction
 
 " -------------------------------------------------------------------
