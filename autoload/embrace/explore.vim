@@ -82,10 +82,10 @@
 "   - So use <ESC> in the insert mode maps to leave Insert mode.
 
 function! s:WireMappingExploreWithMRU(binding, dirpath) abort
-  silent exec "silent! unmap <buffer> " . a:binding
+  silent exec "silent! nunmap <buffer> " . a:binding
   silent exec "silent! iunmap <buffer> " . a:binding
 
-  silent exec "noremap <silent> <unique> " . a:binding
+  silent exec "nnoremap <silent> <unique> " . a:binding
     \ . " :call <SID>ExploreWithMRU('" . a:dirpath . "')<CR>"
   silent exec "inoremap <silent> <unique>" . a:binding
     \ . " <ESC>:call <SID>ExploreWithMRU('" . a:dirpath . "')<CR>"
