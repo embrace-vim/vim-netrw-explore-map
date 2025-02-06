@@ -312,6 +312,13 @@ function! s:EscapeFromNetrwBuffer()
 
   if exists('s:notable_notes_mru_bufnr')
     exec "normal " . s:notable_notes_mru_bufnr . "\<C-^>"
+  elseif exists('w:history')
+      \ && exists('w:history_index')
+      \ && type(w:history) == v:t_list
+      \ && w:history_index > -1
+      \ && w:history_index < len(w:history)
+    " REFER: https://github.com/landonb/vim-buffer-ring#💍
+    exec "normal " . w:history[w:history_index] . "\<C-^>"
   endif
 endfunction
 
