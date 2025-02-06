@@ -264,6 +264,9 @@ endfunction
 "       autocmd FileType netrw noremap <buffer> <silent>
 "         \ <ESC> :exec "edit #" . s:notable_notes_mru_bufnr<CR>
 "     So use CTRL-^ command.
+" - SPIKE/2025-02-06: DUNNO: Why not use :b command?
+"   - Note we dont use `:edit #` so that we don't jump back to another :netrw
+"     buffer.
 " - Note: I could not get map with {rhs} exec and special character to work.
 "   - You can run `:exec "normal! \<C-^>"` manually from from the command line.
 "     But when called from a map, the <C-^> is removed, e.g., with:
@@ -301,6 +304,11 @@ endfunction
 " ***
 
 function! s:EscapeFromNetrwBuffer()
+  " SAVVY: This simple command usually works:
+  "   execute "edit #"
+  " but if you've opened :netrw from :netrw,
+  " then that switches between the 2 :netrw
+  " windows.
   exec "normal " . s:notable_notes_mru_bufnr . "\<C-^>"
 endfunction
 
