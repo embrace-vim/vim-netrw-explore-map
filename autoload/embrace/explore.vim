@@ -172,6 +172,23 @@ function! s:ExploreWithMRU(explore_dir)
     "  back to another netrw buffer.)
     let s:notable_notes_mru_bufnr = bufnr("%")
   endif
+
+  " You can cycle hiding with `gh` and `a`.
+  " - gh will toggle g:netrw_list_hide between its current setting and this:
+  "     let g:netrw_list_hide = '^\.\.\=/\=$,\(^\|\s\s\)\zs\.\S\+'
+  " - You can hide dotfiles (incl. after two spaces) with this:
+  "     let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+  " Here we simply ignore '.' and '..'. (You can use `-` to parent-up.)
+  " - Note if you set this manually within a :netrw window, it won't
+  "   take effect immediately (but will once you, e.g., switch windows).
+  " REFER: See also vim-vinegar, which (on author's host) sets:
+  "   let g:netrw_list_hide = ',^\.\.\=/\=$'
+  " - CXREF: In a DepoXy env. at:
+  "   ~/.kit/nvim/tpope/start/vim-vinegar/plugin/vinegar.vim
+  if !exists('g:netrw_list_hide')
+    let g:netrw_list_hide = '^\.\.\=/\=$'
+  endif
+
   " Call :Explore to load the netrw window with the specified path.
   exec "Explore " . a:explore_dir
 endfunction
