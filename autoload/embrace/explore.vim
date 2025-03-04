@@ -189,6 +189,11 @@ function! s:ExploreWithMRU(explore_dir)
     let g:netrw_list_hide = '^\.\.\=/\=$'
   endif
 
+  if !exists('g:netrw_banner')
+    " Press 'I' to toggle the banner.
+    let g:netrw_banner = 0
+  endif
+
   " Call :Explore to load the netrw window with the specified path.
   exec "Explore " . a:explore_dir
 endfunction
