@@ -249,20 +249,8 @@ let s:has_alerted_vim_buffer_delights = 0
 
 function! s:MoveCursorToFirstNormalWindow() abort
   " CXREF:
-  " ~/.kit/nvim/embrace-vim/start/vim-buffer-delights/autoload/embrace/windows.vim
-  try
-    let l:found_winnr = g:embrace#windows#FindNextWindowWithNormalBuffer()
-  catch /^Vim\%((\a\+)\)\=:E117:/
-    " E.g., E117: Unknown function: foo#bar#baz
-    if !g:vim_buffer_delights_alerts_disable && !s:has_alerted_vim_buffer_delights
-      echom "ALERT: Please install embrace-vim/vim-buffer-delights to enable `FindNextWindowWithNormalBuffer`:"
-      echom "  https://github.com/embrace-vim/vim-buffer-delights#🍧"
-
-      let s:has_alerted_vim_buffer_delights = 1
-    endif
-
-    let l:found_winnr = winnr()
-  endtry
+  " ~/.kit/nvim/embrace-vim/start/vim-netrw-explore-map/autoload/embrace/explore_normal.vim
+  let l:found_winnr = g:embrace#explore_normal#FindNextWindowWithNormalBuffer()
 
   if l:found_winnr > 0
     " Move the cursor to the next window identified without a special buffer.
